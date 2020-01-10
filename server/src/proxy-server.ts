@@ -1,8 +1,9 @@
-const httpProxy = require("http-proxy");
+import httpProxy from "http-proxy";
+import { ClientRequest, IncomingMessage, ServerResponse } from "http";
 
 const proxyServer = httpProxy.createProxyServer();
 
-proxyServer.on("error", function(err: any, req: any, res: any) {
+proxyServer.on("error", function(err: Error, req: any, res: any) {
   console.error({ err: err });
 
   res.status(500).json({
@@ -11,5 +12,17 @@ proxyServer.on("error", function(err: any, req: any, res: any) {
     errors: [err]
   });
 });
+
+proxyServer.on(
+  "proxyReq",
+  (
+    proxyReq: ClientRequest,
+    req: IncomingMessage,
+    res: ServerResponse,
+    options: Object
+  ) => {
+    proxyReq.setHeader("X-Special-Proxy-Header", "myProxyServer");
+  }
+);
 
 module.exports = proxyServer;
