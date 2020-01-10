@@ -1,11 +1,11 @@
 {
   "name": "gitflow-example",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "release": "generate-release -m {version}"
+    "release": "generate-release -m v{version}"
   },
   "keywords": [],
   "author": "",
