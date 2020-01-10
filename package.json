@@ -1,6 +1,6 @@
 {
   "name": "gitflow-example",
-  "version": "1.0.0",
+  "version": "v0.3.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,4 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "axios": "^0.19.0"
-  }
 }
