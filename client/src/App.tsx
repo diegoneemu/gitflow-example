@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Header from "./header";
+import Header from "./Header";
 import logo from "./logo.svg";
 import axios from "axios";
 
@@ -38,7 +38,7 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <Header />
-      <MainSection />
+      <MainSection></MainSection>
     </div>
   );
 };

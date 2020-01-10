@@ -1,12 +1,10 @@
-import React from "react";
+import React, { FunctionComponent } from "react";
 
-interface MainSectionProps {
-  children: JSX.Element[];
-}
+type MainSectionProps = {};
 
-const MainSection = (props: MainSectionProps): JSX.Element => {
-  const children = props.children;
-
+const MainSection: FunctionComponent<MainSectionProps> = ({
+  children
+}): JSX.Element => {
   return (
     <section id="main-section">
       {React.Children.map(children, (child, i) => {
