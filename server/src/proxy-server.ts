@@ -3,10 +3,10 @@ import { ClientRequest, IncomingMessage, ServerResponse } from "http";
 
 const proxyServer = httpProxy.createProxyServer();
 
-proxyServer.on("error", function(err: Error, req: any, res: any) {
+proxyServer.on("error", function(err: Error, req: IncomingMessage, res: any) {
   console.error({ err: err });
 
-  res.status(500).json({
+  res.statusCode(500).json({
     statusCode: 500,
     message: "Internal Server Error",
     errors: [err]
