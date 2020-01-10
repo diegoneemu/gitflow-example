@@ -23,7 +23,9 @@ const App: React.FC = () => {
     async function fetchData() {
       const result = await getMessage();
 
-      if (!didCancel) {
+      if (result.statusCode === 404) {
+        setMessage("Não possível obter mensagem.");
+      } else if (!didCancel) {
         setMessage(result);
       }
     }
