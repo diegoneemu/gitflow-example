@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
+import Header from "./header";
 import logo from "./logo.svg";
 import axios from "axios";
 
 import "./App.css";
+import MainSection from "./MainSection";
 
 const getMessage = async () => {
   try {
@@ -35,9 +37,8 @@ const App: React.FC = () => {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <p>{message}</p>
-      </header>
+      <Header />
+      <MainSection />
     </div>
   );
 };
