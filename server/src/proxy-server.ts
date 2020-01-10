@@ -1,7 +1,28 @@
-const httpProxy = require("http-proxy");
+import httpProxy from "http-proxy";
+import { ClientRequest, IncomingMessage, ServerResponse } from "http";
 
-const proxy = httpProxy.createProxyServer({});
+const proxyServer = httpProxy.createProxyServer();
 
-proxyServer.on('proxyReq', (req, res, options){
-  
-})
+proxyServer.on("error", function(err: Error, req: any, res: any) {
+  console.error({ err: err });
+
+  res.status(500).json({
+    statusCode: 500,
+    message: "Internal Server Error",
+    errors: [err]
+  });
+});
+
+proxyServer.on(
+  "proxyReq",
+  (
+    proxyReq: ClientRequest,
+    req: IncomingMessage,
+    res: ServerResponse,
+    options: Object
+  ) => {
+    proxyReq.setHeader("X-Special-Proxy-Header", "myProxyServer");
+  }
+);
+
+module.exports = proxyServer;
