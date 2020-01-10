@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
-import Header from "./Header";
-import logo from "./logo.svg";
 import axios from "axios";
-
+import React, { useEffect, useState } from "react";
 import "./App.css";
+import Header from "./Header";
+import Home from "./Home";
 import MainSection from "./MainSection";
+
 
 const getMessage = async () => {
   try {
@@ -38,7 +38,7 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <Header />
-      <MainSection></MainSection>
+      <MainSection><Home /></MainSection>
     </div>
   );
 };
